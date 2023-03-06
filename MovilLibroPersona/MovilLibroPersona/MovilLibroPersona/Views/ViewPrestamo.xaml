@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Crear Prestamo"
+             xmlns:local="clr-namespace:MovilLibroPersona.ViewModel"
+             x:Class="MovilLibroPersona.Views.ViewPrestamo">
+
+    <ContentPage.BindingContext>
+
+        <local:ViewModelPrestamo></local:ViewModelPrestamo>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Picker Title="Persona" ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding PersonaSeleccionada}" ></Picker>
+
+
+            <Label Text="Selecciona uno o mas libros"></Label>
+            <CollectionView ItemsSource="{Binding ListaLibros}" SelectedItems="{Binding LibrosSeleccionados}"
+                SelectionMode="Multiple">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding nombre}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Seleccione la fecha del prestamo"></Label>
+            <DatePicker MinimumDate="01/01/1980" Date="{Binding FechaPrestamo}"></DatePicker>
+            <Label Text="Seleccione la fecha de devolucion"></Label>
+            <DatePicker MinimumDate="01/01/1980" Date="{Binding FechaDevolucion}"  ></DatePicker>
+
+            <Button Text="Crear Prestamo" Command="{Binding CrearPrestamoCommand}"></Button>
+            <Label Text="{Binding MensajePrestamo}"></Label>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Personas"
+             x:Class="MovilLibroPersona.Views.ViewPersona">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Nombre" Text="{Binding NombrePersona}" />
+            <Entry Placeholder="Número de Cuenta" Text="{Binding NumCuenta}" />
+            <Button Text="Crear Persona" Command="{Binding CrearPersonaCommand}" />
+            <Label Text="{Binding Mensaje}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
